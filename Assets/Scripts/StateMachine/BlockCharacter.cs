@@ -16,12 +16,12 @@ public class BlockCharacter : BlockBase
 
     public void OnEnable()
     {
-        m_IsMovingCharacter += CheckIsMoving;
+        EventManager.instance.StartListening(TyperEvent.E_MovingCharacter, CheckIsMoving);
     }
 
     public void OnDisable()
     {
-        m_IsMovingCharacter -= CheckIsMoving;
+        EventManager.instance.StopListening(TyperEvent.E_MovingCharacter, CheckIsMoving);
     }
     public override void Update()
     {
@@ -49,10 +49,7 @@ public class BlockCharacter : BlockBase
         if (hit.collider != null)
         {
             HandleCollision(hit.collider, dir);
-            if(m_input == true)
-            {
-                m_IsMovingCharacter?.Invoke();
-            }
+         
           /*  BlockMain blockBase = hit.collider.GetComponent<BlockMain>();
             if (dir == Vector3.up)
             {

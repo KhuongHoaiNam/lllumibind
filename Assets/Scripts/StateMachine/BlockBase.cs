@@ -22,7 +22,6 @@ public abstract class BlockBase : MonoBehaviour
     public bool isMovingDown;
 
     public bool isTest = false;
-    public Action m_IsMovingCharacter;
     public virtual void Start()
     {
         ChangeState(new IdleState(this));
@@ -32,10 +31,7 @@ public abstract class BlockBase : MonoBehaviour
     public virtual void Update()
     {
         currentState.Upgrade();
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            m_IsMovingCharacter?.Invoke();
-        }
+     
     }
 
     public void MoveBlock(Vector3 dir)

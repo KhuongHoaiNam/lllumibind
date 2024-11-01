@@ -13,6 +13,7 @@ public class MainCheckCharacter : ICollision<BlockBase>
             block.isMovingLeft = blockcharacter.isMovingLeft;
             block.isMovingRight = blockcharacter.isMovingRight;
             block.isMovingUp = blockcharacter.isMovingUp;
+            EventManager.instance.TriggerEvent(TyperEvent.E_MovingCharacter);
 
         }
     }

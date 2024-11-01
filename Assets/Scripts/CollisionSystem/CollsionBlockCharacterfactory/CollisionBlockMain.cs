@@ -16,7 +16,6 @@ public class CollisionBlockMain : ICollision<BlockCharacter>
                 if (blockBase.collisionDirection == CollisionDirection.Down && block.isMovingDown == true)
                 {
                     block.m_input = true;
-                    blockBase.m_IsMovingCharacter?.Invoke();
                 }
                 else
                 {
@@ -33,7 +32,6 @@ public class CollisionBlockMain : ICollision<BlockCharacter>
                 if (blockBase.collisionDirection == CollisionDirection.Up && block.isMovingUp == true)
                 {
                     block.m_input = true;
-                    blockBase.m_IsMovingCharacter?.Invoke();
                 }
                 else
                 {
@@ -50,7 +48,6 @@ public class CollisionBlockMain : ICollision<BlockCharacter>
                 if (blockBase.collisionDirection == CollisionDirection.Right && block.isMovingLeft == true)
                 {
                     block.m_input = true;
-                    blockBase.m_IsMovingCharacter?.Invoke();
                 }
                 else
                 {
@@ -65,7 +62,6 @@ public class CollisionBlockMain : ICollision<BlockCharacter>
                 if (blockBase.collisionDirection == CollisionDirection.Left && block.isMovingRight)
                 {
                     block.m_input = true;
-                    blockBase.m_IsMovingCharacter?.Invoke();
                 }
                 else
                 {
