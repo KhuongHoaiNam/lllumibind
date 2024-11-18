@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BlockManager : SingletonMono<BlockManager>
 {
-   
+
 
     public List<BlockController> m_BlockController;
     public List<BlockController> m_BlockMoving;
@@ -30,8 +31,15 @@ public class BlockManager : SingletonMono<BlockManager>
     {
         m_BlockMoving.Remove(blockMoving);
     }
-    public void Moving()
+    public void Moving(Vector3 DIR)
     {
+        foreach (BlockController block in m_BlockController)
+        {
+            if (block.m_CanControl)
+            {
+                block.OnMoving(DIR);
+            }
 
+        }
     }
 }
